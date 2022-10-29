@@ -87,6 +87,7 @@ body {
   box-shadow: 4px 4px 4px #b9b2b6;
   border-radius: 10px;
   font-size: 20px;
+  transition: all .3s;
 }
 
 .time-btn:hover {
@@ -104,6 +105,7 @@ body {
   border-radius: 10px;
   box-shadow: 4px 4px 4px #b9b2b6;
   font-size: 20px;
+  transition: all .3s;
 }
 
 .again-button:hover {
