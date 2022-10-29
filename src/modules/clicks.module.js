@@ -7,7 +7,7 @@ export class ClicksModule extends Module {
     super(type, text);
 
     this.time = 5;
-    this.score = 0;
+    this.score = -1;
 
     this.moduleWrapper = document.createElement('div');
     this.moduleWrapper.style.width = '50%';
@@ -20,8 +20,6 @@ export class ClicksModule extends Module {
     this.moduleWrapper.style.display = 'flex';
     this.moduleWrapper.style.justifyContent = 'center';
     this.moduleWrapper.style.alignItems = 'center';
-    document.body.append(this.moduleWrapper);
-    
 
     this.timeInfoHTML = document.createElement('h1');
     this.moduleWrapper.append(this.timeInfoHTML);
@@ -55,6 +53,8 @@ export class ClicksModule extends Module {
   }
 
   trigger() {
+    document.body.append(this.moduleWrapper);
+
     setInterval(() => {
       this.decreaseTime();
     }, 1000);
