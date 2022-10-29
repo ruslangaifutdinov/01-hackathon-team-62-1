@@ -84,6 +84,9 @@ body {
   height: 40px;
   border: 3px solid #615d5f;
   cursor: pointer;
+  box-shadow: 4px 4px 4px #b9b2b6;
+  border-radius: 10px;
+  font-size: 20px;
 }
 
 .time-btn:hover {
@@ -98,10 +101,58 @@ body {
   border: 3px solid #615d5f;
   cursor: pointer;
   margin-top: 30px;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px #b9b2b6;
+  font-size: 20px;
 }
 
 .again-button:hover {
   background-color: #464445;
   color: white;
   box-shadow: 4px 4px 4px #b9b2b6;
+}
+
+.result-title {
+  font-size: 30px;
+}
+
+.cursor {
+	position: fixed;
+	width: 40px;
+	height: 40px;
+	margin: -20px 0 0 -20px;
+	border-radius: 50%;
+	background: #7a7a7a;
+	animation: appear .2s;
+	-webkit-animation: appear .2s;
+}
+
+@keyframes appear {
+	0%{
+		opacity: .8;
+		transform: scale(.5, .5);
+	}
+	70%{
+		opacity: .3;
+		transform: scale(1, 1);
+	}
+	100%{
+		opacity: 0;
+		transform: scale(.5, .5);
+	}
+}
+
+@-webkit-keyframes appear {
+	0%{
+		opacity: .8;
+		-webkit-transform: scale(.5, .5);
+	}
+	70%{
+		opacity: .3;
+		-webkit-transform: scale(1, 1);
+	}
+	100%{
+		opacity: 0;
+		-webkit-transform: scale(.5, .5);
+	}
 }
