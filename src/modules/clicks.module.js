@@ -115,6 +115,7 @@ export class ClicksModule extends Module {
 
   #startClick() {
     this.#timeInfoHTML = document.createElement('h1');
+    this.#timeInfoHTML.className = 'time-info-title';
     this.#clicksModuleWrapper.append(this.#timeInfoHTML);
 
     this.#timer = setInterval(() => {
