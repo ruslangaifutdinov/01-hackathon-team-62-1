@@ -146,8 +146,8 @@ body {
   position: fixed;
   bottom: 15px;
   left: 15px;
-  height: 200px;
-  width: 350px;
+  height: 125px;
+  width: 250px;
   border: 1px outset #615d5f;
   border-radius: 5%;
   display: flex;
@@ -360,5 +360,5 @@ body {
 .background-wrapper {
   width: 100vw;
   height: 100vh;
-  transform:translate(-32px, -32px);
+  transform: translate(-32px, -32px);
 }
