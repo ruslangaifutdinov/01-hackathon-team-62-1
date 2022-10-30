@@ -33,6 +33,8 @@ export default class ContextMenu extends Menu {
     menuItem.addEventListener("click", (event) => {
       event.preventDefault();
       if (!module.notClean) {
+        this.modules['timer'].destructor()
+        this.modules['message'].destructor()
         this.clean();
       }
       module.trigger();

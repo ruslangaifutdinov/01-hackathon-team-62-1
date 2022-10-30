@@ -141,6 +141,8 @@ body {
   width: 350px;
   border: 1px outset #615d5f;
   background: #dad2ca;
+
+
 }
 .timer-wrapper {
   position: fixed;
@@ -152,14 +154,16 @@ body {
   border-radius: 5%;
   display: flex;
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
+  display: flex;
 }
 
 .custom-message-quote {
   position: relative;
   display: block;
-  padding: 0.4em 0.4em 0.4em 1em;
+  padding: 0.4em 0.4em 0.4em 0.6em;
   margin: 0.5em 0;
   color: #444;
   text-decoration: none;
@@ -167,11 +171,20 @@ body {
   transition: 0.3s ease-out;
 }
 
-.custom-message-quote:hover {
-  background: #dad2ca;
+.timer-wrapper {
+  position: fixed;
+  bottom: 15px;
+  left: 15px;
+  height: 200px;
+  width: 350px;
+  border: 1px outset #615d5f;
   color: #0077ff;
-  font-size: 3rem;
-  text-transform: uppercase;
+  border-radius: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 250%;
 }
 
 .timer-seconds-input {
@@ -211,13 +224,14 @@ body {
 .timer-button-stop,
 .timer-button-submit {
   backface-visibility: hidden;
+  height: 45px;
+  text-transform: uppercase;
   background-color: #24f13c;
   border-radius: 6px;
   border-width: 0;
   box-sizing: border-box;
   color: #fff;
   cursor: pointer;
-  font-size: 80%;
   margin: 12px 0 0;
   outline: none;
   overflow: hidden;
