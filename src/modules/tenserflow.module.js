@@ -3,8 +3,50 @@ import { Module } from "../core/module";
 export class TenserFlow extends Module {
   constructor(type, text) {
     super(type, text);
-    const URL = "https://teachablemachine.withgoogle.com/models/5K-3f5lqM/";
-    let model, webcam, labelContainer, maxPredictions;
+    this.url = "https://teachablemachine.withgoogle.com/models/5K-3f5lqM/";
+    this.model;
+    this.webcam;
+    this.labelContainer;
+    this.maxPredictions;
+
+    this.init = async () => {
+      console.log(this.url);
+      const modelURL = this.url + "model.json";
+      const metadataURL = this.url + "metadata.json";
+
+      this.model = await tmImage.load(modelURL, metadataURL);
+      this.maxPredictions = this.model.getTotalClasses();
+
+      const flip = true;
+      this.webcam = new tmImage.Webcam(200, 200, flip);
+      await this.webcam.setup();
+      await this.webcam.play();
+      window.requestAnimationFrame(this.loop);
+
+      document
+        .getElementById("webcam-container")
+        .appendChild(this.webcam.canvas);
+      this.labelContainer = document.getElementById("label-container");
+      console.log(this.labelContainer);
+      for (let i = 0; i < this.maxPredictions; i++) {
+        this.labelContainer.appendChild(document.createElement("div"));
+      }
+    };
+
+    this.loop = async () => {
+      this.webcam.update();
+      await this.predict();
+      window.requestAnimationFrame(this.loop);
+    };
+
+    this.predict = async () => {
+      const prediction = await this.model.predict(this.webcam.canvas);
+      for (let i = 0; i < this.maxPredictions; i++) {
+        const classPrediction =
+          prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+        this.labelContainer.childNodes[i].innerHTML = classPrediction;
+      }
+    };
   }
 
   initial() {}
@@ -32,27 +74,7 @@ export class TenserFlow extends Module {
     document.body.append(div, btn, camera, label);
 
     btn.addEventListener("click", () => {
-      init();
+      this.init();
     });
-
-    async function init() {
-      const modelURL = URL + "model.json";
-      const metadataURL = URL + "metadata.json";
-
-      model = await tmImage.load(modelURL, metadataURL);
-      maxPredictions = model.getTotalClasses();
-
-      const flip = true;
-      webcam = new tmImage.Webcam(200, 200, flip);
-      await webcam.setup();
-      await webcam.play();
-      window.requestAnimationFrame(loop);
-
-      document.getElementById("webcam-container").appendChild(webcam.canvas);
-      labelContainer = document.getElementById("label-container");
-      for (let i = 0; i < maxPredictions; i++) {
-        labelContainer.appendChild(document.createElement("div"));
-      }
-    }
   }
 }
