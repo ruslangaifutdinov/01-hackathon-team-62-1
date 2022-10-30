@@ -9,16 +9,16 @@ import { CustomMessageModule } from "@/modules/customMessage.module";
 import { TimerModule } from "./modules/timer.module";
 
 const menu = new ContextMenu("#menu");
-const backgroundModule = new BackgroundModule("background", "Случайный фон");
-const shapeModule = new ShapeModule("shape", "Случайная фигура");
-const clicksModule = new ClicksModule("click", "Игра 'подсчёт кликов'");
-const soundModule = new SoundModule("sound", "Случайный звук");
-const ratesModule = new RatesModule("rates", "Курсы валют");
+const backgroundModule = new BackgroundModule("background", "🟪 Случайный фон");
+const shapeModule = new ShapeModule("shape", "🔷 Случайная фигура");
+const clicksModule = new ClicksModule("click", "🔢 Игра 'подсчёт кликов'");
+const soundModule = new SoundModule("sound", "🔊 Случайный звук");
+const ratesModule = new RatesModule("rates", "💲 Курсы валют");
 const customMessageModule = new CustomMessageModule(
   "message",
-  "Кастомное сообщение"
+  "📩 Кастомное сообщение"
 );
-const timerModule = new TimerModule("timer", "Таймер отсчета");
+const timerModule = new TimerModule("timer", "⏰ Таймер отсчета");
 
 menu.add(backgroundModule);
 menu.add(shapeModule);
