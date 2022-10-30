@@ -129,6 +129,85 @@ body {
 	-webkit-animation: appear .2s;
 }
 
+.timer-wrapper {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    height: 200px;
+    width: 350px;
+    border: 1px outset #615d5f;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #0077FF;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.timer-seconds-input {
+    width: 100%;
+    border: 0;
+    padding: 16px 12px 0 12px;
+    height: 56px;
+    font-size: 16px;
+    font-weight: 400;
+    background: rgba(0,0,0,.02);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.3);
+    color: #000;
+    transition: all .15s ease;
+}
+
+.timer-seconds-input:hover {
+    background: rgba(0,0,0,.04);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.5);
+}
+
+.timer-seconds-input:focus {
+    background: rgba(0,0,0,.05);
+    outline: none;
+    box-shadow: inset 0 -2px 0 #0077FF;
+    color: #0077FF;
+    transform: translate3d(0,-2px,0) scale(.98);
+}
+
+.timer-seconds-input::-webkit-outer-spin-button,
+.timer-seconds-input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.timer-button-start,
+.timer-button-continue,
+.timer-button-stop,
+.timer-button-submit {
+    backface-visibility: hidden;
+    background-color: #24f13c;
+    border-radius: 6px;
+    border-width: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 80%;
+    margin: 12px 0 0;
+    outline: none;
+    overflow: hidden;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    display: none;
+}
+
+.timer-button-stop {
+    background-color: #f00;
+}
+
+.timer-button-submit {
+    background-color: #03f;
+    display: block;
+}
+
 @keyframes appear {
 	0%{
 		opacity: .8;
