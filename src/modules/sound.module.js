@@ -30,6 +30,7 @@ export class SoundModule extends Module {
 
     if (this.notClean) {
       this.previosSound.pause();
+      this.previosSound.currentTime = 0;
       this.previosSound = audio;
       audio.play();
     } else {
