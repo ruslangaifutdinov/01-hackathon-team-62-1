@@ -1,11 +1,12 @@
 import { Module } from "../core/module";
 
 export class TimerModule extends Module {
-  #timerWrapperElement; // Main Div block where timer located
+  #timerWrapperElement; // Main Div block, where timer located
   #timerCounterElement; // Special Div block for time display
   #timerID; // SetInterval ID for destruction
   #timerOnPause; // Flag, which allows pausing timer
   #secondsInput; // Value from input tag (User input data)
+  #hours // Seconds input -> hours (ex. 3600 -> 1hour)
   #minutes; // Seconds input -> minutes (Ex. 120 -> 2mins)
   #seconds; // Seconds input -> seconds (Ex. 65 -> 5sec (and 1 minute in #minutes))
 
@@ -15,7 +16,7 @@ export class TimerModule extends Module {
     this.#timerOnPause = true;
   }
 
-  #destructor() {
+  destructor() {
     clearInterval(this.#timerID);
     this.#timerWrapperElement.remove();
     this.#timerOnPause = true;
@@ -23,7 +24,7 @@ export class TimerModule extends Module {
   }
 
   trigger() {
-    if (document.body.querySelector(".timer-wrapper")) this.#destructor();
+    if (document.body.querySelector(".timer-wrapper")) this.destructor();
     else document.body.append(this.#timerWrapperElement);
   }
 
@@ -93,12 +94,15 @@ export class TimerModule extends Module {
   }
 
   #timeDisplay() {
-    this.#minutes = Math.floor(this.#secondsInput / 60);
-    this.#seconds = this.#secondsInput % 60;
+    this.#hours = Math.floor(this.#secondsInput / 3600)
+    let tempTime = this.#secondsInput - this.#hours * 3600
+    this.#minutes = Math.floor(tempTime / 60);
+    this.#seconds = tempTime % 60;
 
+    if (this.#hours < 10) this.#hours = TimerModule.#addZero(this.#hours);
     if (this.#minutes < 10) this.#minutes = TimerModule.#addZero(this.#minutes);
     if (this.#seconds < 10) this.#seconds = TimerModule.#addZero(this.#seconds);
-    this.#timerCounterElement.innerHTML = `${this.#minutes} : ${this.#seconds}`;
+    this.#timerCounterElement.innerHTML = `${this.#hours} : ${this.#minutes} : ${this.#seconds}`;
   }
 
   #timerCountdown() {
@@ -111,7 +115,7 @@ export class TimerModule extends Module {
       this.#timerCounterElement.innerHTML = "Time is out!";
       clearInterval(this.#timerID);
       this.#timerWrapperElement.querySelector(".timer-buttons").remove();
-      setTimeout(this.#destructor.bind(this), 3000);
+      setTimeout(this.destructor.bind(this), 3000);
     }
   }
 }
