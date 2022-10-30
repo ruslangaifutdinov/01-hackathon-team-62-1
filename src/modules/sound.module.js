@@ -14,6 +14,7 @@ export class SoundModule extends Module {
     this.collection = [];
     this.#init(this.sounds);
     this.notClean = false;
+    this.previosSound;
   }
 
   #init(sounds) {
@@ -25,15 +26,16 @@ export class SoundModule extends Module {
 
   trigger() {
     const randomSound = random(0, this.collection.length - 1);
-    const audio = this.collection[randomSound];
+    let audio = this.collection[randomSound];
 
     if (this.notClean) {
-      audio.pause();
-      audio.currentTime = 0;
+      this.previosSound.pause();
+      this.previosSound = audio;
+      audio.play();
     } else {
       audio.play();
+      this.previosSound = audio;
       this.notClean = true;
-      console.log(this.notClean);
     }
   }
 }
