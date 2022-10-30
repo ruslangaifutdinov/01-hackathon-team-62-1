@@ -362,3 +362,10 @@ body {
   height: 100vh;
   transform: translate(-32px, -32px);
 }
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
