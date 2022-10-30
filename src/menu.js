@@ -43,6 +43,7 @@ export default class ContextMenu extends Menu {
   }
 
   clean() {
+    document.body.style.background = "#ffffff";
     const items = document.querySelectorAll("body > *:not(.menu)");
     items.forEach((item) => item.remove());
   }
