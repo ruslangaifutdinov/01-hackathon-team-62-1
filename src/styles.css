@@ -54,6 +54,7 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .select-time-wrapper {
@@ -68,15 +69,14 @@ body {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
   margin-top: 30px;
 }
 
 .time-list li {
-  margin-right: 15px;
-}
-
-.time-list li:last-child {
-  margin-right: 0;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .time-btn {
@@ -116,6 +116,11 @@ body {
 
 .result-title {
   font-size: 20px;
+  text-align: center;
+}
+
+.time-info-title {
+  text-align: center;
 }
 
 .cursor {
