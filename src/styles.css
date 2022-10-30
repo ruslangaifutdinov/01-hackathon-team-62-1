@@ -158,3 +158,93 @@ body {
 		-webkit-transform: scale(.5, .5);
 	}
 }
+
+/* custom select styles */
+.select {
+  position: relative;
+  min-width: 600px;
+  z-index: 100;
+  margin-bottom: 30px;
+}
+
+.select.active .select__body {
+  display: block;
+}
+
+.select__header {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.select__current {
+  font-size: 18px;
+  line-height: 24px;
+  padding: 8px;
+}
+
+.select__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  text-align: center;
+
+  width: 40px;
+  height: 40px;
+
+  margin-left: auto;
+}
+
+.select__body {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  border: 1px solid #ccc;
+  border-top: 0;
+}
+
+.select__item {
+  font-size: 16px;
+  line-height: 24px;
+  padding: 8px;
+  cursor: pointer;
+  background-color: #fff;
+  transition: background-color .2s;
+}
+
+.select__item:hover {
+  background-color: #f2f2f2;
+}
+
+.rates-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.rates-info-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 600px;
+}
+
+.dollar-icon {
+  width: 300px;
+  height: 300px;
+  background-image: url(./assets/img/dollar.png);
+  background-repeat: no-repeat;
+  background-size: auto;
+  margin-right: auto;
+}
+
+.rate-title {
+  display: flex;
+  justify-content: flex-end;
+}
