@@ -33,6 +33,7 @@ export class SoundModule extends Module {
     } else {
       audio.play();
       this.notClean = true;
+      console.log(this.notClean);
     }
   }
 }
