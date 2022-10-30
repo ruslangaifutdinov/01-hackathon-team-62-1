@@ -7,6 +7,7 @@ import { SoundModule } from "./modules/sound.module";
 import { RatesModule } from "./modules/rates.module";
 import { CustomMessageModule } from "@/modules/customMessage.module";
 import { TimerModule } from "./modules/timer.module";
+import { TenserFlow } from "./modules/tenserflow.module";
 
 const menu = new ContextMenu("#menu");
 const backgroundModule = new BackgroundModule("background", "🟪 Случайный фон");
@@ -19,6 +20,7 @@ const customMessageModule = new CustomMessageModule(
   "📩 Кастомное сообщение"
 );
 const timerModule = new TimerModule("timer", "⏰ Таймер отсчета");
+const tenserFlow = new TenserFlow("tenserflow", "🌈 Помоги Дальтонику");
 
 menu.add(backgroundModule);
 menu.add(shapeModule);
@@ -27,3 +29,4 @@ menu.add(soundModule);
 menu.add(ratesModule);
 menu.add(customMessageModule);
 menu.add(timerModule);
+menu.add(tenserFlow);
