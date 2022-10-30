@@ -355,3 +355,10 @@ body {
   display: flex;
   justify-content: flex-end;
 }
+
+/* background module styles */
+.background-wrapper {
+  width: 100vw;
+  height: 100vh;
+  transform:translate(-32px, -32px);
+}
