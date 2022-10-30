@@ -129,6 +129,36 @@ body {
 	-webkit-animation: appear .2s;
 }
 
+.custom-message-wrapper {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    height: 100px;
+    width: 350px;
+    border: 1px outset #615d5f;
+    background: #DAD2CA;
+    border-radius: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-message-quote {
+    position: relative;
+    display: block;
+    padding: .4em .4em .4em 1em;
+    margin: .5em 0;
+    color: #444;
+    text-decoration: none;
+    border-radius: .3em;
+    transition: .3s ease-out;
+}
+
+.custom-message-quote:hover {
+    background: #DAD2CA;
+}
+
 @keyframes appear {
 	0%{
 		opacity: .8;
