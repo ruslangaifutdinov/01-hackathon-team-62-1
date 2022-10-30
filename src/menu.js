@@ -45,7 +45,9 @@ export default class ContextMenu extends Menu {
   }
 
   clean() {
-    const items = document.querySelectorAll("body > *:not(.menu)");
+    const items = document.querySelectorAll(
+      "body > *:not(.menu, .timer-wrapper)"
+    );
     items.forEach((item) => item.remove());
   }
 

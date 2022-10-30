@@ -18,7 +18,7 @@ export class TenserFlow extends Module {
       this.maxPredictions = this.model.getTotalClasses();
 
       const flip = true;
-      this.webcam = new tmImage.Webcam(200, 200, flip);
+      this.webcam = new tmImage.Webcam(400, 400, flip);
       await this.webcam.setup();
       await this.webcam.play();
       window.requestAnimationFrame(this.loop);
@@ -58,7 +58,8 @@ export class TenserFlow extends Module {
   }
 
   render() {
-    console.log("Render");
+    const main = document.createElement("div");
+    main.className = "main";
     const div = document.createElement("div");
     div.textContent = "Помощник выбора цвета";
 
@@ -71,7 +72,9 @@ export class TenserFlow extends Module {
     const label = document.createElement("div");
     label.id = "label-container";
 
-    document.body.append(div, btn, camera, label);
+    main.append(div, btn, camera, label);
+
+    document.body.append(main);
 
     btn.addEventListener("click", () => {
       this.init();
