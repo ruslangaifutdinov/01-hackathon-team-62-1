@@ -32,11 +32,19 @@ export default class ContextMenu extends Menu {
 
     menuItem.addEventListener("click", (event) => {
       event.preventDefault();
+      if (!module.notClean) {
+        this.clean();
+      }
       module.trigger();
       this.close();
     });
 
     this.menu.append(menuItem);
+  }
+
+  clean() {
+    const items = document.querySelectorAll("body > *:not(.menu)");
+    items.forEach((item) => item.remove());
   }
 
   close() {
